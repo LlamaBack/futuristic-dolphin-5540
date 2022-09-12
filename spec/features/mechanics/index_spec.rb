@@ -4,7 +4,7 @@ RSpec.describe 'the mechanics index' do
     before(:each) do
         @bob = Mechanic.create(name: 'Bob', years_experience: 9)
         @hailey = Mechanic.create(name: 'Hailey', years_experience: 12)
-      end
+    end
     it 'lists all the mechancs with their years of experience' do
         visit '/mechanics'
         expect(page).to have_content("All Mechanics")
