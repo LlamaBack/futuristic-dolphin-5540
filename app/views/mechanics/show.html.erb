@@ -5,3 +5,10 @@
 <% @mechanic.open_rides_by_thrill.each do |ride| %>
   <h3><%= ride.name %></h3>
 <% end %>
+
+<h2>Add Ride Responsibility</h2>
+<%= form_with url: "/mechanics/#{@mechanic.id}", method: :patch do |f| %>
+  <%= f.label :ride_id, "Ride ID" %>
+  <%= f.text_field :ride_id %>
+  <%= f.submit "Submit" %>
+<% end %>
