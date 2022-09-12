@@ -21,4 +21,8 @@ RSpec.describe AmusementPark, type: :model do
   it 'lists rides in order by name' do
     expect(@disney.rides_by_name).to eq([@magic, @splash, @hurler, @mummy])
   end
+
+  it 'returns average thrill' do
+    expect(@disney.avg_thrill).to eq(7.5)
+  end
 end
