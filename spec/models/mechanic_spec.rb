@@ -17,7 +17,7 @@ RSpec.describe Mechanic, type: :model do
     @mummy = Ride.create!(name: "The Mummy", thrill_rating:6, open:true, amusement_park_id: @disney.id)
 
     @bob.rides += [@hurler, @magic, @splash]
-end
+  end
   
   it 'returns average experience of mechanics' do
     expect(Mechanic.avg_experience).to eq(10.5)
