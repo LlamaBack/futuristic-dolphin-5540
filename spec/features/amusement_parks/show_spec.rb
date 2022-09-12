@@ -16,9 +16,14 @@ RSpec.describe 'the mechanics show page' do
 
     it 'shows rides alphabetically and admissions' do
         visit "/amusement_parks/#{@disney.id}"
-        save_and_open_page
         expect(page).to have_content("Admissions: $#{@disney.admission_cost}.00")
         expect(@magic.name).to appear_before(@splash.name)
         expect(@hurler.name).to appear_before(@mummy.name)
+    end
+
+    it 'shows average thrill' do
+        visit "/amusement_parks/#{@disney.id}"
+        save_and_open_page
+        expect(page).to have_content("Average Thrill Rating: 7.5/10")
     end
 end
