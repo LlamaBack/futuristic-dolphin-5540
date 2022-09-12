@@ -14,6 +14,7 @@ RSpec.describe Mechanic, type: :model do
     @hurler = Ride.create!(name: "The Hurler", thrill_rating:7, open:false, amusement_park_id: @disney.id)
     @magic = Ride.create!(name: "Magic Mountain", thrill_rating:8, open:true, amusement_park_id: @disney.id)
     @splash = Ride.create!(name: "Splash Mountain", thrill_rating:9, open:true, amusement_park_id: @disney.id)
+    @mummy = Ride.create!(name: "The Mummy", thrill_rating:6, open:true, amusement_park_id: @disney.id)
 
     @bob.rides += [@hurler, @magic, @splash]
 end
@@ -24,5 +25,10 @@ end
 
   it 'returns open rides mechanic is working on by thrill' do
     expect(@bob.open_rides_by_thrill).to eq([@splash, @magic])
+  end
+
+  it 'adds a ride to the mechanic' do
+    @bob.add_ride(@mummy.id)
+    expect(@bob.rides).to include(@mummy)
   end
 end
